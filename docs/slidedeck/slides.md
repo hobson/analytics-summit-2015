@@ -5,7 +5,7 @@
 % author: <a href="https://github.com/hobson">Hobson Lane</a> %nbsp-- %nbsp<a href="https://twitter.com/hobsonlane">@hobsonlane</a>
 % copyright: Sharp Laboratories of America
 
-% thankyou_details: Thank you, Sharp Labs, for contributing to open source...
+% thankyou_details: Thank you, Sharp, for being awesome, contributing to open source...
 % contact: PDX Python's <a href="https://github.com/pug/pug">python utilities</a>
 % contact: Steven Bird's <a href="https://github.com/nltk">nltk</a>
 % contact: Mike Bostock's <a href="http://d3js.org">D3</a>
