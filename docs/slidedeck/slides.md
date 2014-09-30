@@ -3,6 +3,7 @@
 % subtitle: San Diego, CA
 % subtitle: <i><small>February 19-20, 2015</small></i>
 % author: <a href="https://github.com/hobson">Hobson Lane</a> %nbsp-- %nbsp<a href="https://twitter.com/hobsonlane">@hobsonlane</a>
+% copyright: Sharp Laboratories of America
 
 % thankyou_details: Thank you, Sharp Labs, for contributing to open source...
 % contact: PDX Python's <a href="https://github.com/pug/pug">python utilities</a>
