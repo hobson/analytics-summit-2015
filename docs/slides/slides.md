@@ -4,7 +4,6 @@
 % subtitle: <i><small>February 19-20, 2015</small></i>
 % author: <a href="https://github.com/hobson">Hobson Lane</a><a href="https://twitter.com/hobsonlane">@hobsonlane</a>
 % copyright: Sharp Laboratories of America
-
 % thankyou: Thank you <a href="https://www.sharplabs.com">Sharp Labs!</a>
 % thankyou_details: for being <strong>awesome</strong> by contributing to open source...
 % contact: PDX Python's <a href="https://github.com/pug/pug">pug</a>
