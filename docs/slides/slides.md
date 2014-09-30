@@ -15,7 +15,7 @@
 ---
 title: Hobson Lane
 
-* Principal Data Scientist, Sharp Laboratories of America
+*Principal Data Scientist, Sharp Laboratories of America*
 
 Hobson and the data analytics team are transforming the way business decisions are made in Sharp’s sales and customer service divisions, using data to reveal new opportunities and revamp existing business strategies. He brings to this challenge 20 years of experience creating autonomous devices and systems as Section Head at a large aerospace corporation, a Quant for a small hedge fund, and a Chief Data Scientist for a fast-growing startup. Hobson will share data analytics war stories where billions of dollars of spacecraft hardware and millions of dollars in sales and returns were saved and lost.
 
