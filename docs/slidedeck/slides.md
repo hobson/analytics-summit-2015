@@ -1,8 +1,12 @@
 % title: Data Analytics War Stories
-% subtitle: Predictive Analytics Innovation Summit, San Diego, CA
+% subtitle: Predictive Analytics Innovation Summit
+% subtitle: San Diego, CA
 % subtitle: <i><small>February 19-20, 2015</small></i>
 % author: <a href="https://github.com/hobson">Hobson Lane</a>
-% thankyou_details: A big thank you to Sharp Labs for contributing to these open source projects...
+% author: <a href="https://twitter.com/hobsonlane">(@hobsonlane)</a>
+% copyright: Sharp Laboratories of the Americas
+
+% thankyou_details: Thank you, Sharp Labs, for contributing to open source...
 % contact: PDX Python's <a href="https://github.com/pug/pug">python utilities</a>
 % contact: Steven Bird's <a href="https://github.com/nltk">nltk</a>
 % contact: Mike Bostock's <a href="http://d3js.org">D3</a>
@@ -71,11 +75,16 @@ title: War Story #2
 ---
 title: The Team
 
-* Hobson Lane, Prinipal Data Scientist <laneh@sharplabs.com>
-* John Kowalski, Department Manager <kowalskj@sharplabs.com>
-* Steve Walker, Data Guru <walkers@sharplabs.com>
-* Rono Mathieson, VP <rono@sharplabs.com>
-* LiZhong Zheng, MIT Professor, Electrical Engineering and Computer Sciences <lizhong@MIT.edu>
+* Hobson Lane, Prinipal Data Scientist, Sharp Labs
+    * <laneh@sharplabs.com>
+* John Kowalski, Department Manager, Sharp Labs
+    * <kowalskj@sharplabs.com>
+* Steve Walker, Data Guru, Sharp Labs
+    * <walkers@sharplabs.com>
+* Rono Mathieson, VP, Sharp Labs
+    * <rono@sharplabs.com>
+* LiZhong Zheng, Professor, MIT
+    * <lizhong@MIT.edu>
 
 
 
