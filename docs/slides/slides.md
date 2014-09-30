@@ -9,7 +9,7 @@
 % contact: PDX Python's <a href="https://github.com/pug/pug">pug</a>
 % contact: Steven Bird's <a href="https://github.com/nltk">nltk</a>
 % contact: Mike Bostock's <a href="http://d3js.org">D3</a>
-% favicon: <img src="https://sharplabs.github.io/favicon.ico"/>
+% favicon: http://www.sharplabs.com/favicon.ico
 
 ---
 title: Hobson Lane
