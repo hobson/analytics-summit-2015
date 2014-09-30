@@ -5,11 +5,11 @@
 % author: <a href="https://github.com/hobson">Hobson Lane</a><a href="https://twitter.com/hobsonlane">@hobsonlane</a>
 % copyright: Sharp Laboratories of America
 
-% thankyou: Thank you <a href="https://www.sharplabs.com">Sharp Labs</a>!
+% thankyou: Thank you <a href="https://www.sharplabs.com">Sharp Labs!</a>
 % thankyou_details: for being <strong>awesome</strong> by contributing to open source...
-% contact: <span>PDX Python's</span> <a href="https://github.com/pug/pug">pug</a>
-% contact: <span>Steven Bird's</span> <a href="https://github.com/nltk">nltk</a>
-% contact: <span>Mike Bostock's</span> <a href="http://d3js.org">D3</a>
+% contact: PDX Python's <a href="https://github.com/pug/pug">pug</a>
+% contact: Steven Bird's <a href="https://github.com/nltk">nltk</a>
+% contact: Mike Bostock's <a href="http://d3js.org">D3</a>
 % favicon: <img src="https://sharplabs.github.io/favicon.ico"/>
 
 ---
