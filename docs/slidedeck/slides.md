@@ -15,7 +15,9 @@
 ---
 title: Speaker Bio
 
- Principal Data Scientist at Sharp Laboratories of America, Hobson and the data analytics team are transforming the way business decisions are made in Sharp’s sales divisions and using data to reveal new opportunities and revamp existing business strategies.  He brings to this challenge 20 years of experience creating autonomous devices and systems as a Systems Engineer and Section Head at a large aerospace corporation where subpar performance wasn't an option and slow algorithms or inaccurate predictions could cost billions of dollars in spacecraft hardware.  Hobson has focused this same critical system thinking on performance and innovation to solve challenges of computational intelligence and data analytics at Sharp Corporation.  He will share predictive analytics war stories, both successes and failures, which will bring to light opportunities for increasing performance at your own organizations.
+ Principal Data Scientist 
+ Sharp Laboratories of America
+ Hobson and the data analytics team are transforming the way business decisions are made in Sharp’s sales and customer service divisions, using data to reveal new opportunities and revamp existing business strategies. He brings to this challenge 20 years of experience creating autonomous devices and systems as Section Head at a large aerospace corporation, a Quant for a small hedge fund, and a Chief Data Scientist for a fast-growing startup. Hobson will share data analytics war stories where billions of dollars of spacecraft hardware and millions of dollars in sales and returns were saved and lost.
 
 ---
 title: War Story #1
