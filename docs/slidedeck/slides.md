@@ -2,9 +2,7 @@
 % subtitle: Predictive Analytics Innovation Summit
 % subtitle: San Diego, CA
 % subtitle: <i><small>February 19-20, 2015</small></i>
-% author: <a href="https://github.com/hobson">Hobson Lane</a>
-% author: <a href="https://twitter.com/hobsonlane">(@hobsonlane)</a>
-% copyright: Sharp Laboratories of the Americas
+% author: <a href="https://github.com/hobson">Hobson Lane</a> %nbsp-- %nbsp<a href="https://twitter.com/hobsonlane">@hobsonlane</a>
 
 % thankyou_details: Thank you, Sharp Labs, for contributing to open source...
 % contact: PDX Python's <a href="https://github.com/pug/pug">python utilities</a>
@@ -13,7 +11,7 @@
 % favicon: <img src="https://sharplabs.github.io/favicon.ico"/>
 
 ---
-title: Speaker Bio
+title: Hobson Lane
 
  Principal Data Scientist 
  Sharp Laboratories of America
