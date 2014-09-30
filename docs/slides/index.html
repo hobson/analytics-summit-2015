@@ -13,7 +13,7 @@ URL: https://code.google.com/p/io-2012-slides
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Title of my presentation</title>
+  <title> Data Analytics War Stories</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
@@ -21,7 +21,7 @@ URL: https://code.google.com/p/io-2012-slides
   <!--This one seems to work all the time, but really small on ipad-->
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
-   <link rel="shortcut icon" href=" http://www.sharplabs.com/favicon.ico"/> 
+   <link rel="shortcut icon" href=" <img src="https://sharplabs.github.io/favicon.ico"/>"/> 
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="all" href="theme/css/custom.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
@@ -52,9 +52,9 @@ URL: https://code.google.com/p/io-2012-slides
 <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
 
-    <h1> Title of my presentation</h1>
-    <h2> And a subtitle</h2>
-    <p> Firstname Lastname<br/> Other info to put on the author line</p>
+    <h1> Data Analytics War Stories</h1>
+    <h2> Predictive Analytics Innovation Summit<br/> San Diego, CA<br/> <i><small>February 19-20, 2015</small></i></h2>
+    <p> <a href="https://github.com/hobson">Hobson Lane</a><a href="https://twitter.com/hobsonlane">@hobsonlane</a></p>
   </hgroup>
 </slide>
 
@@ -62,70 +62,135 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2>Intro slide</h2>
+      <h2></h2>
       <h3></h3>
     </hgroup>
-    <article ><p>Here is a list that should build:</p>
-<ul class="build">
-<li>I like formulas, like this one $e=mc^2$</li>
-<li>It's rendered using MathJax. You can change the settings by editing base.html if you like</li>
-<li>pressing 'f' toggle fullscreen</li>
-<li>pressing 'w' toggles widescreen</li>
-<li>'o' toggles overview mode</li>
-</ul></article>
+    <article ></article>
  
-</slide>
-
-<slide class="img-top-center" >
-  
-    <hgroup>
-      <h2>Slide with a figure</h2>
-      <h3>Subtitles are cool too</h3>
-    </hgroup>
-    <article ><p><img height=150 src=figures/200px-6n-graf.svg.png /></p>
-<ul>
-<li>Some point to make about about this figure from wikipedia</li>
-<li>This slide has a class that was defined in theme/css/custom.css</li>
-</ul>
-<footer class="source"> Always cite your sources! </footer></article>
- 
-</slide>
-
-<slide class="segue dark nobackground" >
-  
-    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
-    <hgroup class="auto-fadein">
-      <h2>Segue slide</h2>
-      <h3>I can haz subtitlz?</h3>
-    </hgroup>
-  
 </slide>
 
 <slide  >
   
     <hgroup>
-      <h2>Maybe some code?</h2>
+      <h2>Hobson Lane</h2>
       <h3></h3>
     </hgroup>
-    <article ><p>press 'h' to highlight an important section (that is highlighted
-with &lt;b&gt;...&lt;/b&gt; tags)</p>
-<pre class="prettyprint" data-lang="javascript">
-function isSmall() {
-  return window.matchMedia("(min-device-width: ???)").matches;
-}
+    <article ><p>Principal Data Scientist 
+ Sharp Laboratories of America
+ Hobson and the data analytics team are transforming the way business decisions are made in Sharp’s sales and customer service divisions, using data to reveal new opportunities and revamp existing business strategies. He brings to this challenge 20 years of experience creating autonomous devices and systems as Section Head at a large aerospace corporation, a Quant for a small hedge fund, and a Chief Data Scientist for a fast-growing startup. Hobson will share data analytics war stories where billions of dollars of spacecraft hardware and millions of dollars in sales and returns were saved and lost.</p></article>
+ 
+</slide>
 
-<b>function hasTouch() {
-  return Modernizr.touch;
-}</b>
+<slide  >
+  
+    <hgroup>
+      <h2>War Story #1</h2>
+      <h3>$1.5B Asset in Hangs in the Balance</h3>
+    </hgroup>
+    <article ><ul>
+<li>Imagine yourself in the operations center for a $1.5B satellite</li>
+<li>A launch system failure has caused your satellite to tumble out of control</li>
+<li>Dozens of computer monitors around streaming telemetry</li>
+<li>
+<p>As the Control System expert you must:</p>
+<ol>
+<li>Figure out what the data says about the satellite's motion and health</li>
+<li>Get it under control</li>
+<li>Save it before the atmosphere drags it down to the Earth</li>
+</ol>
+</li>
+</ul>
+<p>(diagram of fireball reentry)</p>
+<footer>True Story</footer></article>
+ 
+</slide>
 
-function detectFormFactor() {
-  var device = DESKTOP;
-  if (hasTouch()) {
-    device = isSmall() ? PHONE : TABLET;
-  }
-  return device;
-}
-</pre></article>
+<slide  >
+  
+    <hgroup>
+      <h2>Not So Fast</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Your gut says to turn on the "Reaction Wheel" to get sensors pointed better</li>
+<li>Your gut is often wrong when complex dynamics are at play</li>
+<li>Your simulation (predictive analytics) are wrong</li>
+<li>The wheel will crash and destroy the satellite if you spin it too fast</li>
+<li>Your team discovers your error before catastrophy</li>
+</ul>
+<footer>True story</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Key Piece of Data</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>The solar panels are oscillating in voltage so we're tumbling... fast </li>
+<li>How Fast?</li>
+<li>The data says it's twice as fast as what our gut says</li>
+<li>You educate the team on something called "aliasing"</li>
+<li>You prevent thruster burns that would have made things worse</li>
+<li>Corrected thruster burns save the satellite</li>
+</ul>
+<footer>Do the math before any big decision</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>War Story #2</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Our TV return rate is increasing rapidly? Why?</li>
+<li>
+<p>What is the right denomenator (sales unit count) for each numerator (returns)</p>
+</li>
+<li>
+<p>Information Theoretic approach would produce the most accurate answer</p>
+</li>
+<li>Sales team "rule of thumb" is much easier to explain and almost as accurate</li>
+<li>Calculate the average sales "lag" to normalize the returns by</li>
+<li>Aggregate report compares dealers, models, geographic locations, dates, etc</li>
+</ul>
+<p>(demo or video of a typical query and lag calculation)</p>
+<footer>Do the math before any big decision</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The Team</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Hobson Lane, Prinipal Data Scientist, Sharp Labs<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#97;&#110;&#101;&#104;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#108;&#97;&#110;&#101;&#104;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>John Kowalski, Department Manager, Sharp Labs<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#111;&#119;&#97;&#108;&#115;&#107;&#106;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#107;&#111;&#119;&#97;&#108;&#115;&#107;&#106;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>Steve Walker, Data Guru, Sharp Labs<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#97;&#108;&#107;&#101;&#114;&#115;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#119;&#97;&#108;&#107;&#101;&#114;&#115;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>Rono Mathieson, VP, Sharp Labs<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#111;&#110;&#111;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#114;&#111;&#110;&#111;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>LiZhong Zheng, Professor, MIT<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#105;&#122;&#104;&#111;&#110;&#103;&#64;&#77;&#73;&#84;&#46;&#101;&#100;&#117;">&#108;&#105;&#122;&#104;&#111;&#110;&#103;&#64;&#77;&#73;&#84;&#46;&#101;&#100;&#117;</a></li>
+</ul>
+</li>
+</ul></article>
  
 </slide>
 
@@ -133,10 +198,10 @@ function detectFormFactor() {
 <slide class="thank-you-slide segue nobackground">
   <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
   <article class="flexbox vleft auto-fadein">
-    <h2> Thanks everyone!</h2>
-    <p> And especially these people:</p>
+    <h2> Thank you <a href="https://www.sharplabs.com">Sharp Labs</a>!</h2>
+    <p> for being <strong>awesome</strong> by contributing to open source...</p>
   </article>
-  <p data-config-contact class="auto-fadein"> <span>www</span> <a href="http://www.google.edu/">website</a><br/> <span>github</span> <a href="http://github.com">username</a></p>
+  <p data-config-contact class="auto-fadein"> <span>PDX Python's</span> <a href="https://github.com/pug/pug">pug</a><br/> <span>Steven Bird's</span> <a href="https://github.com/nltk">nltk</a><br/> <span>Mike Bostock's</span> <a href="http://d3js.org">D3</a></p>
   </p>
 </slide>
 
