@@ -2,7 +2,7 @@
 % subtitle: Predictive Analytics Innovation Summit
 % subtitle: San Diego, CA
 % subtitle: <i><small>February 19-20, 2015</small></i>
-% author: <a href="https://github.com/hobson">Hobson Lane</a> %nbsp-- %nbsp<a href="https://twitter.com/hobsonlane">@hobsonlane</a>
+% author: <a href="https://github.com/hobson">Hobson Lane</a>\(<a href="https://twitter.com/hobsonlane">@hobsonlane</a>\)
 % copyright: Sharp Laboratories of America
 
 % thankyou_details: Thank you, Sharp, for being <strong>awesome</strong>, contributing to open source...
