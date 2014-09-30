@@ -1,0 +1,17 @@
+*.pyc
+*.old
+*.bak
+*.tsv
+*.csv
+*.json
+*.log
+*.csv
+results/
+data/
+log/
+.pydevproject
+.project
+.metadata
+bower_components/
+*~
+nohup.out

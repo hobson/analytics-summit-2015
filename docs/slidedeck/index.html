@@ -1,0 +1,202 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Data Analytics War Stories</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" <img src="https://sharplabs.github.io/favicon.ico"/>"/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Data Analytics War Stories</h1>
+    <h2> Predictive Analytics Innovation Summit, San Diego, CA<br/> <i><small>February 19-20, 2015</small></i></h2>
+    <p> <a href="https://github.com/hobson">Hobson Lane</a></p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>Speaker Bio</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Principal Data Scientist at Sharp Laboratories of America, Hobson and the data analytics team are transforming the way business decisions are made in Sharp’s sales divisions and using data to reveal new opportunities and revamp existing business strategies.  He brings to this challenge 20 years of experience creating autonomous devices and systems as a Systems Engineer and Section Head at a large aerospace corporation where subpar performance wasn't an option and slow algorithms or inaccurate predictions could cost billions of dollars in spacecraft hardware.  Hobson has focused this same critical system thinking on performance and innovation to solve challenges of computational intelligence and data analytics at Sharp Corporation.  He will share predictive analytics war stories, both successes and failures, which will bring to light opportunities for increasing performance at your own organizations.</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>War Story #1</h2>
+      <h3>$1.5B Asset in Hangs in the Balance</h3>
+    </hgroup>
+    <article ><ul>
+<li>Imagine yourself in the operations center for a $1.5B satellite</li>
+<li>A launch system failure has caused your satellite to tumble out of control</li>
+<li>Dozens of computer monitors around streaming telemetry</li>
+<li>
+<p>As the Control System expert you must:</p>
+<ol>
+<li>Figure out what the data says about the satellite's motion and health</li>
+<li>Get it under control</li>
+<li>Save it before the atmosphere drags it down to the Earth</li>
+</ol>
+</li>
+</ul>
+<p>(diagram of fireball reentry)</p>
+<footer>True Story</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Not So Fast</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Your gut says to turn on the "Reaction Wheel" to get sensors pointed better</li>
+<li>Your gut is often wrong when complex dynamics are at play</li>
+<li>Your simulation (predictive analytics) are wrong</li>
+<li>The wheel will crash and destroy the satellite if you spin it too fast</li>
+<li>Your team discovers your error before catastrophy</li>
+</ul>
+<footer>True story</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Key Piece of Data</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>The solar panels are oscillating in voltage so we're tumbling... fast </li>
+<li>How Fast?</li>
+<li>The data says it's twice as fast as what our gut says</li>
+<li>You educate the team on something called "aliasing"</li>
+<li>You prevent thruster burns that would have made things worse</li>
+<li>Corrected thruster burns save the satellite</li>
+</ul>
+<footer>Do the math before any big decision</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>War Story #2</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Our TV return rate is increasing rapidly? Why?</li>
+<li>
+<p>What is the right denomenator (sales unit count) for each numerator (returns)</p>
+</li>
+<li>
+<p>Information Theoretic approach would produce the most accurate answer</p>
+</li>
+<li>Sales team "rule of thumb" is much easier to explain and almost as accurate</li>
+<li>Calculate the average sales "lag" to normalize the returns by</li>
+<li>Aggregate report compares dealers, models, geographic locations, dates, etc</li>
+</ul>
+<p>(demo or video of a typical query and lag calculation)</p>
+<footer>Do the math before any big decision</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The Team</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Hobson Lane, Prinipal Data Scientist <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#97;&#110;&#101;&#104;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#108;&#97;&#110;&#101;&#104;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+<li>John Kowalski, Department Manager <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#111;&#119;&#97;&#108;&#115;&#107;&#106;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#107;&#111;&#119;&#97;&#108;&#115;&#107;&#106;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+<li>Steve Walker, Data Guru <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#97;&#108;&#107;&#101;&#114;&#115;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#119;&#97;&#108;&#107;&#101;&#114;&#115;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+<li>Rono Mathieson, VP <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#111;&#110;&#111;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#114;&#111;&#110;&#111;&#64;&#115;&#104;&#97;&#114;&#112;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a></li>
+<li>LiZhong Zheng, MIT Professor, Electrical Engineering and Computer Sciences <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#105;&#122;&#104;&#111;&#110;&#103;&#64;&#77;&#73;&#84;&#46;&#101;&#100;&#117;">&#108;&#105;&#122;&#104;&#111;&#110;&#103;&#64;&#77;&#73;&#84;&#46;&#101;&#100;&#117;</a></li>
+</ul></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2></h2>
+    <p> A big thank you to Sharp Labs for contributing to these open source projects...</p>
+  </article>
+  <p data-config-contact class="auto-fadein"> PDX Python's <a href="https://github.com/pug/pug">python utilities</a><br/> Steven Bird's <a href="https://github.com/nltk">nltk</a><br/> Mike Bostock's <a href="http://d3js.org">D3</a></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
