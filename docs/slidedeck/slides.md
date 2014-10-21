@@ -14,6 +14,15 @@ title: Speaker Bio
  Principal Data Scientist at Sharp Laboratories of America, Hobson and the data analytics team are transforming the way business decisions are made in Sharp’s sales divisions and using data to reveal new opportunities and revamp existing business strategies.  He brings to this challenge 20 years of experience creating autonomous devices and systems as a Systems Engineer and Section Head at a large aerospace corporation where subpar performance wasn't an option and slow algorithms or inaccurate predictions could cost billions of dollars in spacecraft hardware.  Hobson has focused this same critical system thinking on performance and innovation to solve challenges of computational intelligence and data analytics at Sharp Corporation.  He will share predictive analytics war stories, both successes and failures, which will bring to light opportunities for increasing performance at your own organizations.
 
 ---
+title: Introduction
+subtitle: Million Dollar Predictive Analytics War Stories
+
+Imagine yourself in the operations center for a $1B satellite trying to make sense of data flowing back from its sensors as it begins to tumble out of control, speeding up as you watch. Or imagine watching your service center expenses creeping and then accelerating, exceeding $3M/month despite increased efforts to improve product quality and fine tune polices. This talk will relate these and other "million dollar" war stories where executives learned data analytics concepts like aliasing and regular expressions, the hard way.
+
+<footer>True Story</footer>
+
+---
+---
 title: War Story #1
 subtitle: $1.5B Asset in Hangs in the Balance
 
