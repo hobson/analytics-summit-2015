@@ -19,7 +19,6 @@ subtitle: Million Dollar Predictive Analytics War Stories
 
 Imagine yourself in the operations center for a $1B satellite trying to make sense of data flowing back from its sensors as it begins to tumble out of control, speeding up as you watch. Or imagine watching your service center expenses creeping and then accelerating, exceeding $3M/month despite increased efforts to improve product quality and fine tune polices. This talk will relate these and other "million dollar" war stories where executives learned data analytics concepts like aliasing and regular expressions, the hard way.
 
-<footer>True Story</footer>
 
 ---
 ---
