@@ -1,12 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import mpld3
+# import mpld3
 from mpld3 import plugins
 
-N = 1000
+N = 800
 T = 0.1  # generated data sample period in seconds
-Ts = 10  # sample period in seconds
-Tt = 3   # tumble period
+Ts = 4   # sample period in seconds
+Tt = 3   # tumble period in seconds
 wt = 2 * np.pi / Tt # rad/s
 A = 1367 / 100.  # Watts
 
@@ -16,18 +16,29 @@ noise = 0.05 * A * np.random.randn(N)
 signal = A * np.sin(wt*t) + noise
 i_samples = np.array([int(t0) for t0 in np.floor((np.floor(t / Ts) * Ts / T))])
 samples = signal[i_samples]
-table = np.array([signal,samples])
+
+def exponential_smoother(x, alpha=0.5, beta=None):
+    beta = beta or 1 - alpha
+    y = [0]  
+    for x0 in x[:-1]:
+        y += [alpha * x0 + beta * y[-1]]
+    return y
+
+smoothed = np.array(exponential_smoother(signal, alpha=0.01))
+smoothed_samples = smoothed[i_samples]
+t = t[:N/2]
+table = np.array([signal[N/2:],samples[N/2:],smoothed[N/2:],smoothed_samples[N/2:]])
 
 xlabel, ylabel, title = 'Time (s)', 'Power (W)', 'Solar Panel Output'
 fontdict={'fontsize': 12, 'fontweight': 'bold', 'family': 'sans-serif'}
 
 fig1, ax1 = plt.subplots(1, 1)
-lines = ax1.plot(t, table[0], linewidth=2.5)
-ax1.xlabel(xlabel, fontdict=fontdict)
-ax1.ylabel(ylabel, fontdict=fontdict)
+lines = ax1.plot(t, table[1], 'r', linewidth=2.5)
+plt.xlabel(xlabel, fontdict=fontdict)
+plt.ylabel(ylabel, fontdict=fontdict)
 plt.title(title, fontdict=fontdict)
-ax1.grid(color='lightgray', alpha=0.7)
-plt.show(fig=fig1, block=False)
+plt.grid(color='gray')
+plt.show(block=False)
 
 # # only scatter plots seem to work with hover tooltips
 labels = ["{0:.2g} W @ {1:.2g} s".format(s0, t0) for t0, s0  in zip(t, table[0])]
@@ -40,11 +51,35 @@ plt.show(block=False)
 
 
 fig2, ax2 = plt.subplots(1, 1)
-ax2.plot(t, table.T, linewidth=2.5)
-ax2.xlabel(xlabel, fontdict=fontdict)
-ax2.ylabel(ylabel, fontdict=fontdict)
+ax2.plot(t, table[0], 'b', t, table[1], 'r', linewidth=2.5)
+plt.xlabel(xlabel, fontdict=fontdict)
+plt.ylabel(ylabel, fontdict=fontdict)
 plt.title(title, fontdict=fontdict)
-ax2.grid(color='lightgray', alpha=0.7)
+plt.grid(color='gray')
+plt.legend(['Truth', 'Sampled'])
 plt.savefig('fig1-1b-nyquist.png')
 plt.show(block=False)
 # mpld3.show()
+
+
+fig, ax = plt.subplots(1, 1)
+lines = ax.plot(t, table[3], 'r', linewidth=2.5)
+plt.xlabel(xlabel, fontdict=fontdict)
+plt.ylabel(ylabel, fontdict=fontdict)
+plt.title(title, fontdict=fontdict)
+plt.grid(color='gray')
+plt.savefig('fig1-1c-antialiasing.png')
+plt.show(block=False)
+
+
+
+fig, ax = plt.subplots(1, 1)
+
+ax.plot(t, table[2], 'b', t, table[3], 'r', linewidth=2.5)
+plt.xlabel(xlabel, fontdict=fontdict)
+plt.ylabel(ylabel, fontdict=fontdict)
+plt.title('With Anti-Aliasing Filter', fontdict=fontdict)
+plt.grid(color='gray')
+plt.legend(['Filtered', 'Sampled'])
+plt.savefig('fig1-1d-antialiasing.png')
+plt.show(block=False)
