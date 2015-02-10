@@ -39,11 +39,26 @@ def twilio_callback():
     to = request.form.get('To', '')
     from_ = request.form.get('From', '')
     message = request.form.get('Body', '').lower()
-    if to == TWILIO_NUMBER:
-        redis_db.incr(cgi.escape(message))
-        socketio.emit('msg', {'div': cgi.escape(message),
-                              'val': redis_db.get(message)},
-                      namespace='/paws')
+    print("FROM:    '{0}'".format(from_))
+    print("TO:      '{0}'".format(to))
+    print("MESSAGE: '{0}'".format(message))
+   
+    if to[-10:] == TWILIO_NUMBER[-10:]:
+        message = message.strip().lower()
+        if len(message):
+            try:
+                message = str(int(message[0]))
+            except:
+                message = str(int(message[-1]))
+            redis_db.incr(cgi.escape('paws'+message))
+            socketio.emit('msg', {'div': cgi.escape('paws'+message),
+                                  'val': redis_db.get('paws'+message)},
+                          namespace='/paws')
+        if isinstance(from_, basestring) and len(from_.strip()):
+            try:
+                redis_db.incr(cgi.escape(from_.strip()))
+            except:
+                print('Unable to log vote from "{0}"'.format(cgi.escape(from_)))
     resp = twiml.Response()
     resp.message("Thanks for your vote!")
     return str(resp)
