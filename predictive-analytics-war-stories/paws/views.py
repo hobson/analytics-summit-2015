@@ -11,7 +11,12 @@ from .models import User, Presentation, Choice
 
 from . import app, redis_db, socketio, db, login_manager
 
-VOTELOG = {}
+# RAM database instead of redis
+VOTELOG = {
+            'votes': dict([('paws' + str(i), 0) for i in range(6)]),
+            'voters': {},
+          }
+
 
 client = TwilioRestClient()
 
@@ -46,7 +51,7 @@ def presentation(presentation_name):
 def twilio_callback():
     to = request.form.get('To', '')
     from_ = request.form.get('From', '')
-    message = request.form.get('Body', '').lower()
+    message = request.form.get('Body', '')
     print("FROM:    '{0}'".format(from_))
     print("TO:      '{0}'".format(to))
     print("MESSAGE: '{0}'".format(message))
@@ -58,15 +63,25 @@ def twilio_callback():
                 message = str(int(message[0]))
             except:
                 message = str(int(message[-1]))
-            redis_db.incr(cgi.escape('paws'+message))
-            socketio.emit('msg', {'div': cgi.escape('paws'+message),
-                                  'val': redis_db.get('paws'+message)},
+            message = cgi.escape('paws' + message)
+            if VOTELOG and 'votes' in VOTELOG:
+                if message in VOTELOG['votes'].keys():
+                    VOTELOG['votes'][message] = VOTELOG['votes'][message] + 1
+                total_votes = redis_db.get(message)
+            else:
+                redis_db.incr(message)
+                total_votes = redis_db.get(message)
+            socketio.emit('msg', {'div': message,
+                                  'val': str(total_votes)},
                           namespace='/paws')
         if isinstance(from_, basestring) and len(from_.strip()):
-            try:
-                redis_db.incr(cgi.escape(from_.strip()))
-            except:
-                print('Unable to log vote from "{0}"'.format(cgi.escape(from_)))
+            if VOTELOG and 'voters' in VOTELOG.keys():
+                VOTELOG['voters'][from_] = VOTELOG['voters'].get(from_, '') + cgi.escape(request.form.get('Body', '') + "|.....|")
+            else:
+                try:
+                    redis_db.incr(cgi.escape(from_.strip()))
+                except:
+                    print('Unable to log vote from "{0}"'.format(cgi.escape(from_)))
     resp = twiml.Response()
     resp.message("Thanks for your vote!")
     return str(resp)
