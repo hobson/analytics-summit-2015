@@ -1,0 +1,97 @@
+{% extends "presentation.html" %}
+{% block reveal %}
+        <div class="theme-font-opensans theme-color-black-orange" style="width: 100%; height: 100%;">
+            <div class="reveal">
+                <div class="slides">
+                <section>
+                    <div class="sl-block" data-block-type="text" style="width: 835px; left: 63px; top: 33px; height: auto;">
+                        <div class="sl-block-content" style="z-index: 11;">
+                            <h2>Vote for A War Story</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 373px; height: auto;">
+                        <div class="sl-block-content" style="z-index: 12;" dir="ui">
+                            <ol>
+                                <li><a href="//slides.com/hobsonlane/data-analytics-war-stories#/3"></a>Only Nyquist Knows&nbsp;&nbsp;<span style="color:gray;">(<span id="paws1">{{ paws1 }}</span>)</span></li>
+                                <li>The Meaning of Mean&nbsp;&nbsp;<span style="color:gray;">(<span id="paws2">{{ paws2 }}</span>)</span></li>
+                                <li>Data Dearth&nbsp;&nbsp;<span style="color:gray;">(<span id="paws3">{{ paws3 }}</span>)</span></li>
+                                <li>Question the Question&nbsp;&nbsp;<span style="color:gray;">(<span id="paws4">{{ paws4 }}</span>)</span></li>
+                                <li>Deep Net Runs Aground&nbsp;&nbsp;<span style="color:gray;">(<span id="paws5">{{ paws5 }}</span>)</span></li>
+                                <li>Escape the Maze&nbsp;&nbsp;<span style="color:gray;">(<span id="paws6">{{ paws6 }}</span>)</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 811px; left: 80px; top: 128px;">
+                        <div class="sl-block-content" style="z-index: 13; text-align: center;" dir="ui">
+                            <p>Which story interests you?</p>
+                            <p>SMS your vote ("1"-"6")&nbsp;&nbsp;to:</p>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 698px; left: 0px; top: 661px;">
+                        <div class="sl-block-content" style="z-index: 14; text-align: left;">
+                            <!-- 
+                            <p>
+                               <span style="font-size:20px">SMS: 7707-2-TOTAL &nbsp;or &nbsp;(770) 728-6825 &nbsp; &nbsp;MSGS: "1", "2", "3", "4", "5", or&nbsp;"6"</span>
+                            </p>
+                            -->
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 811px; left: 80px; top: 225px;">
+                        <div class="sl-block-content" style="z-index: 16; color: rgb(232, 0, 11); text-align: center;">
+                            <p>
+                                <span style="font-size:48px">
+                                    <strong>7707-2-TOTAL</strong>
+                                </span>
+                            </p>
+                            <p>
+                                <span style="font-size:48px">
+                                    <strong>(770) 728-6825</strong>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+   
+
+            </div>
+        </div>
+
+        <script type="text/javascript" 
+            src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+        <script src="/static/js/reveal.js"></script>
+
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'default',
+                dependencies: []
+            });
+
+            $(document).ready(function() {
+                namespace = '/paws';
+                var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+
+                /* add and edit choices here */
+                var appropriate_choices = ['paws0', 'paws1', 'paws2', 'paws3', 'paws4', 'paws5', 'paws6'];
+
+                socket.on('msg', function(msg) {
+                    /* ensure valid vote and div exists */
+                    if (appropriate_choices.indexOf(msg.div) >= 0) {
+                        var checkDiv = $('#' + msg.div);
+                        if (checkDiv.length > 0) {
+                            checkDiv.html(msg.val);
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
+{% endblock %}

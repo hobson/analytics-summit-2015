@@ -41,8 +41,8 @@ def votelog():
 @app.route('/<presentation_name>/', methods=['GET'])
 def presentation(presentation_name):
     try:
-        votes = dict([('paws'+str(i +1), redis_db.get('paws'+str(i+1))) for i in range(6)])
-        return render_template('/presentations/' + presentation_name + '.slides.com.html', **votes)
+        votes = dict([('paws'+str(i +1), (redis_db.get('paws'+str(i+1))) or 0) for i in range(6)])
+        return render_template('/presentations/' + presentation_name + '.votes.html', **votes)
     except TemplateNotFound:
         abort(404)
 
