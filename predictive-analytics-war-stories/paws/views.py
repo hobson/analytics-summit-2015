@@ -1,7 +1,6 @@
 import cgi
-from flask import render_template, abort, request, redirect, url_for
-from flask.ext.login import login_user, logout_user, login_required, \
-                            current_user
+from flask import render_template, abort, request, redirect, url_for, jsonify
+from flask.ext.login import login_user, logout_user, login_required, current_user
 from jinja2 import TemplateNotFound
 from twilio import twiml
 from twilio.rest import TwilioRestClient
@@ -11,6 +10,8 @@ from .forms import LoginForm, PresentationForm
 from .models import User, Presentation, Choice
 
 from . import app, redis_db, socketio, db, login_manager
+
+VOTELOG = {}
 
 client = TwilioRestClient()
 
@@ -24,6 +25,13 @@ def list_public_presentations():
     presentations = Presentation.query.filter_by(is_active=True)
     return render_template('list_presentations.html', 
                            presentations=presentations)
+
+@app.route('/votelog/', methods=['GET'])
+def votelog():
+    try:
+        return jsonify(**VOTELOG)
+    except:
+        abort(500)
 
 
 @app.route('/<presentation_name>/', methods=['GET'])
