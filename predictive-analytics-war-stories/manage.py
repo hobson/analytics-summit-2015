@@ -3,9 +3,9 @@ from gevent import monkey
 monkey.patch_all()
 
 import os
-import redis
 
-from paws import app, redis_db, socketio, db
+from paws import app, socketio, db, redis_db
+
 from paws.models import User, Presentation, Choice
 from flask.ext.script import Manager, Shell
 
@@ -27,9 +27,14 @@ def runserver():
 
 @manager.command
 def clear_redis():
-    redis_cli = redis.StrictRedis(host='localhost', port='6379', db='0')
-    redis_cli.delete('left')
-    redis_cli.delete('right')
+    from paws.config import REDIS_SERVER, REDIS_PORT, REDIS_DB
+    if REDIS_PORT:
+        import redis
+        redis_cli = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_PORT, db=REDIS_DB)
+        redis_cli.delete('left')
+        redis_cli.delete('right')
+    else:
+        print("Not using redis, using RAM db instead, so just restart `runserver` to clear the database.")
 
 if __name__ == '__main__':
     manager.run()

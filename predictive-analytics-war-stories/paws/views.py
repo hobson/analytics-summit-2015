@@ -5,17 +5,15 @@ from jinja2 import TemplateNotFound
 from twilio import twiml
 from twilio.rest import TwilioRestClient
 
-from .config import TWILIO_NUMBER
+from .config import TWILIO_NUMBER, REDIS_PORT
+
+from . import redis_db, VOTELOG
+
 from .forms import LoginForm, PresentationForm
 from .models import User, Presentation, Choice
 
-from . import app, redis_db, socketio, db, login_manager
+from . import app, socketio, db, login_manager
 
-# RAM database instead of redis
-VOTELOG = {
-            'votes': dict([('paws' + str(i), 0) for i in range(6)]),
-            'voters': {},
-          }
 
 
 client = TwilioRestClient()
@@ -39,10 +37,12 @@ def votelog():
         abort(500)
 
 
+
 @app.route('/<presentation_name>/', methods=['GET'])
 def presentation(presentation_name):
     try:
-        return render_template('/presentations/' + presentation_name + '.html')
+        votes = dict([('paws'+str(i +1), redis_db.get('paws'+str(i+1))) for i in range(6)])
+        return render_template('/presentations/' + presentation_name + '.slides.com.html', **votes)
     except TemplateNotFound:
         abort(404)
 
@@ -55,6 +55,7 @@ def twilio_callback():
     print("FROM:    '{0}'".format(from_))
     print("TO:      '{0}'".format(to))
     print("MESSAGE: '{0}'".format(message))
+    print("VOTELOG:  {0}".format(VOTELOG))
    
     if to[-10:] == TWILIO_NUMBER[-10:]:
         message = message.strip().lower()
@@ -64,11 +65,12 @@ def twilio_callback():
             except:
                 message = str(int(message[-1]))
             message = cgi.escape('paws' + message)
-            if VOTELOG and 'votes' in VOTELOG:
+            print("PAWSMSG: '{0}'".format(message))
+            if VOTELOG and 'votes' in VOTELOG.keys():
                 if message in VOTELOG['votes'].keys():
                     VOTELOG['votes'][message] = VOTELOG['votes'][message] + 1
-                total_votes = redis_db.get(message)
-            else:
+                total_votes = VOTELOG['votes'].get(message, 0)
+            elif REDIS_PORT:
                 redis_db.incr(message)
                 total_votes = redis_db.get(message)
             socketio.emit('msg', {'div': message,

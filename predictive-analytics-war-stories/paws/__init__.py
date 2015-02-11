@@ -1,4 +1,3 @@
-import redis
 from flask import Flask
 from flask.ext.login import LoginManager
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -9,7 +8,16 @@ app.config.from_pyfile('config.py')
 
 from config import REDIS_SERVER, REDIS_PORT, REDIS_DB
 
-redis_db = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_PORT, db=REDIS_DB)
+if REDIS_PORT:
+    import redis
+    redis_db = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_PORT, db=REDIS_DB)
+    VOTELOG = {}
+else:
+    redis_db = None
+    VOTELOG = {
+                'votes': dict([('paws' + str(i+1), 0) for i in range(6)]),
+                'voters': {},
+              }
 
 socketio = SocketIO(app)
 db = SQLAlchemy(app)

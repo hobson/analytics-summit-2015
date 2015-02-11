@@ -1,3 +1,4 @@
+{% extends "presentation.html" %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -14,6 +15,7 @@
         <![endif]-->
     </head>
     <body>
+        {% block reveal %}{% endblock %}
         <div class="reveal">
             <div class="slides">
                 <section>
@@ -31,11 +33,11 @@
                     <div style="display: inline;">
                         <div style="float: left;">
                             <h2><a href="#/2">War Story 1</a></h2>
-                            <h1><div id="paws1">0</div> votes</h1>
+                            <h1><div id="paws1">{{ paws1 }}</div> votes</h1>
                         </div>
                         <div style="float: right;">
                             <h2><a href="#/3">War Story 2</a></h2>
-                            <h1><div id="paws2">0</div> votes</h1>
+                            <h1><div id="paws2">{{ paws2 }}</div> votes</h1>
                         </div>
                     </div>
                 </section>
@@ -74,7 +76,7 @@
                 var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
 
                 /* add and edit choices here */
-                var appropriate_choices = ['paws1', 'paws2', 'paws3', 'paws4', 'paws5', 'paws6'];
+                var appropriate_choices = ['paws0', 'paws1', 'paws2', 'paws3', 'paws4', 'paws5', 'paws6'];
 
                 socket.on('msg', function(msg) {
                     /* ensure valid vote and div exists */
